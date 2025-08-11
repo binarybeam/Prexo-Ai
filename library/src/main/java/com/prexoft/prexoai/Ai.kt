@@ -93,12 +93,6 @@ class Ai() {
         }
     }
 
-    fun sendMessage(messages: List<String>, callback: AiCallback) {
-        val textParts = mutableListOf<TextPart>()
-        messages.forEach { textParts.add(TextPart(it)) }
-        sendMessage(Content(role = "user", parts = textParts), callback)
-    }
-
     fun sendMessage(images: List<Bitmap>, callback: AiCallback) {
         val imageParts = mutableListOf<ImagePart>()
         images.forEach { imageParts.add(ImagePart(it)) }
