@@ -19,8 +19,25 @@ PrexoAI is a lightweight Kotlin library that makes it effortless to bring Gemini
 
 ## Installation
 
-```gradle
-implementation 'com.github.binarybeam:Prexo-Ai:1.0.0'
+Add JitPack to your `settings.gradle.kts`:
+
+```kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+And include the dependency in your `build.gradle.kts`:
+
+```kotlin
+dependencies {
+    implementation("com.github.binarybeam:Prexo-Ai:1.0.0")
+}
 ```
 
 ---
