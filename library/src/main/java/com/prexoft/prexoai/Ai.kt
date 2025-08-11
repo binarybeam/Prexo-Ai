@@ -103,14 +103,14 @@ class Ai() {
         prexoHis.clear()
     }
 
-    fun updateModel(apiKey: String, modelName: String = prexoAi.modelName, agentMode: Boolean = true, systemInstruction: String = "You're a GenZ AI assistant powered by Prexoft", safetySetting: List<SafetySetting> = prexoAi.safetySettings!!) {
+    fun updateModel(apiKey: String, modelName: String = prexoAi.modelName, agentMode: Boolean = true, systemInstruction: String = "You're a GenZ AI assistant powered by Prexoft", safetySetting: List<SafetySetting> = prexoAi.safetySettings!!, customAgenticMessage: String = prompt) {
         isAgentModeEnabled = agentMode
         prexoAi = GenerativeModel(
             modelName = modelName,
             apiKey = apiKey,
             safetySettings = safetySetting,
             systemInstruction = Content(role = "system", parts = listOf(TextPart(
-                if (agentMode) systemInstruction + "\n" + prompt
+                if (agentMode) systemInstruction + "\n" + customAgenticMessage
                 else systemInstruction
             )))
         )
