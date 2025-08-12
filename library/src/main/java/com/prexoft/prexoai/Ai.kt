@@ -50,7 +50,7 @@ class Ai() {
                 if (isAgentModeEnabled) {
                     if (response.startsWith("{") && response.endsWith("}")) {
                         try {
-                            val jsonObject = JSONObject(response)
+                            val jsonObject = JSONObject(response.removePrefix("```json").removeSuffix("```").trim())
                             var message = ""
                             if (jsonObject.has("message")) {
                                 message = jsonObject.getString("message")
@@ -65,7 +65,7 @@ class Ai() {
                     }
                     if (response.startsWith("[") && response.endsWith("]")) {
                         try {
-                            val jsonArray = JSONArray(response)
+                            val jsonArray = JSONArray(response.removePrefix("```json").removeSuffix("```").trim())
                             val list = mutableListOf<JSONObject>()
                             var messages = ""
 
