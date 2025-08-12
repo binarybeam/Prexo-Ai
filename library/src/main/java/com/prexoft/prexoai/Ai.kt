@@ -50,7 +50,10 @@ class Ai() {
                 if (isAgentModeEnabled) {
                     if (response.startsWith("{") && response.endsWith("}")) {
                         try {
-                            val jsonObject = JSONObject(response.removePrefix("```json").removeSuffix("```").trim())
+                            val jsonObject = JSONObject("""
+                                 ${response.removePrefix("```json").removeSuffix("```").trim()}
+                                 """.trim()
+                            )
                             var message = ""
                             if (jsonObject.has("message")) {
                                 message = jsonObject.getString("message")
