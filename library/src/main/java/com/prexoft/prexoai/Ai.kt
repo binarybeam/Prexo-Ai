@@ -59,7 +59,7 @@ class Ai() {
                 }
                 else res = prexoAi.generateContent(content)
 
-                val response = (res.candidates[0].content.parts[0] as TextPart).text
+                val response = (res.candidates[0].content.parts[0] as TextPart).text.removePrefix("```json").removeSuffix("```").trim()
                 if (isAgentModeEnabled) {
                     if (response.startsWith("{") && response.endsWith("}")) {
                         try {
