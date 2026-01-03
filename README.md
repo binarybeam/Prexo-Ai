@@ -36,7 +36,7 @@ And include the dependency in your `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("com.github.binarybeam:Prexo-Ai:1.1.1")
+    implementation("com.github.binarybeam:Prexo-Ai:1.3.0")
 }
 ```
 
